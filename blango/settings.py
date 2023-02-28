@@ -57,6 +57,7 @@ class Dev(Configuration):
       "debug_toolbar",
 
       "blog",
+      "blango_auth"
   ]
 
   MIDDLEWARE = [
@@ -75,6 +76,8 @@ class Dev(Configuration):
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
   ]
+
+  AUTH_USER_MODEL = "blango_auth.User"
 
   ROOT_URLCONF = 'blango.urls'
 
