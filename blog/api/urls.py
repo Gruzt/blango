@@ -11,10 +11,6 @@ urlpatterns = [
 
 urlpatterns += [
     path("auth/", include("rest_framework.urls")),
-]
-
-urlpatterns += [
-    path("auth/", include("rest_framework.urls")),
     path("token-auth/", views.obtain_auth_token)
 ]
 
