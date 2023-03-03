@@ -61,6 +61,7 @@ class Dev(Configuration):
       "allauth.socialaccount",
       "allauth.socialaccount.providers.google",
       "rest_framework",
+      "rest_framework.authtoken",
 
       "blog",
       "blango_auth"
@@ -82,6 +83,14 @@ class Dev(Configuration):
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
   ]
+
+  REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+  }
 
   AUTH_USER_MODEL = "blango_auth.User"
   
