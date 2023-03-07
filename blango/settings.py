@@ -15,6 +15,7 @@ import os
 from configurations import Configuration
 from configurations import values
 import dj_database_url
+from datetime import timedelta
 
 
 class Dev(Configuration):
@@ -91,6 +92,7 @@ class Dev(Configuration):
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication"
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticatedOrReadOnly"
@@ -262,6 +264,11 @@ class Dev(Configuration):
   ACCOUNT_EMAIL_REQUIRED = True
   ACCOUNT_USERNAME_REQUIRED = False
   ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+  SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+  }
 
 
 
